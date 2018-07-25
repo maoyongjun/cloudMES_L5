@@ -61,8 +61,29 @@ namespace MESInterface.SAP_RFC
             {
                 //RfcPara.Add(RfcConfigParameters.AppServerHost, 
                 //    System.Configuration.ConfigurationSettings.AppSettings[BU+"_SAP_AppServerHost"]);
+                //RfcPara.Add(RfcConfigParameters.SystemNumber, //"01");
+                //System.Configuration.ConfigurationSettings.AppSettings[BU + "_SAP_SystemNumber"]);
+                //RfcPara.Add(RfcConfigParameters.User,
+                //    System.Configuration.ConfigurationSettings.AppSettings[BU + "_SAP_User"]);
+                //RfcPara.Add(RfcConfigParameters.Password,
+                //    System.Configuration.ConfigurationSettings.AppSettings[BU + "_SAP_Password"]);
+                //RfcPara.Add(RfcConfigParameters.Client,
+                //    System.Configuration.ConfigurationSettings.AppSettings[BU + "_SAP_Client"]);
+                //RfcPara.Add(RfcConfigParameters.Name, "CON" + (ConnCount++).ToString());
+                //RfcPara.Add(RfcConfigParameters.Language,
+                //    System.Configuration.ConfigurationSettings.AppSettings[BU + "_SAP_Language"]);
+                //RfcPara.Add(RfcConfigParameters.PoolSize, "5");
+                //RfcPara.Add(RfcConfigParameters.MaxPoolSize, "10");
+                ////RfcPara.Add(RfcConfigParameters.MessageServerHost,
+                ////    System.Configuration.ConfigurationSettings.AppSettings[BU + "_SAP_MessageServerHost"]);
+                //RfcPara.Add(RfcConfigParameters.GatewayHost,
+                //    "10.134.108.122");
+                ////RfcConfigParameters.MessageServerHost
+                ////RfcConfigParameters.MessageServerService
+                //RfcPara.Add(RfcConfigParameters.LogonGroup,
+                //    System.Configuration.ConfigurationSettings.AppSettings[BU + "_SAP_LogonGroup"]);
                 RfcPara.Add(RfcConfigParameters.SystemNumber, //"01");
-                System.Configuration.ConfigurationSettings.AppSettings[BU + "_SAP_SystemNumber"]);
+              System.Configuration.ConfigurationSettings.AppSettings[BU + "_SAP_SystemNumber"]);
                 RfcPara.Add(RfcConfigParameters.User,
                     System.Configuration.ConfigurationSettings.AppSettings[BU + "_SAP_User"]);
                 RfcPara.Add(RfcConfigParameters.Password,
@@ -77,7 +98,7 @@ namespace MESInterface.SAP_RFC
                 //RfcPara.Add(RfcConfigParameters.MessageServerHost,
                 //    System.Configuration.ConfigurationSettings.AppSettings[BU + "_SAP_MessageServerHost"]);
                 RfcPara.Add(RfcConfigParameters.GatewayHost,
-                    "10.134.108.122");
+                    System.Configuration.ConfigurationSettings.AppSettings[BU + "_SAP_MessageServerHost"]);
                 //RfcConfigParameters.MessageServerHost
                 //RfcConfigParameters.MessageServerService
                 RfcPara.Add(RfcConfigParameters.LogonGroup,

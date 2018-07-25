@@ -136,11 +136,11 @@
     <Compile Include="SAP_RFC\ZRFC_SFC_NSG_0022.cs" />
     <Compile Include="SAP_RFC\ZRFC_SFC_NSG_0023T.cs" />
     <Compile Include="taskBase.cs" />
-    <Compile Include="TJ_L5\DownloadWO.cs" />
-    <Compile Include="TJ_L5\DownloadWO_UI.cs">
+    <Compile Include="TJL5\DownloadWO.cs" />
+    <Compile Include="TJL5\DownloadWO_UI.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TJ_L5\DownloadWO_UI.Designer.cs">
+    <Compile Include="TJL5\DownloadWO_UI.Designer.cs">
       <DependentUpon>DownloadWO_UI.cs</DependentUpon>
     </Compile>
     <Compile Include="tools.cs" />
@@ -183,13 +183,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TJ_L5\DownloadWO_UI.resx">
+    <EmbeddedResource Include="TJL5\DownloadWO_UI.resx">
       <DependentUpon>DownloadWO_UI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VERTIV\DownloadWO_UI.resx">
       <DependentUpon>DownloadWO_UI.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="config_tjl5_bak.ini" />
     <None Include="config_tjl5.ini" />
     <None Include="config.ini" />
     <None Include="config_vertiv.ini" />

@@ -105,8 +105,8 @@ namespace MESInterface.TJL5
                 throw new Exception("Init DownLoadWO Fail" + e.Message);
             }
 
-            Output.Tables.Add(ZRFC_GET_PRO_HEADER8.GetTableValue("WO_HEADER"));
-            Output.Tables.Add(ZRFC_GET_PRO_HEADER8.GetTableValue("WO_ITEM"));
+            Output.Tables.Add(ZRFC_GET_PRO_HEADER8.GetTableValue("PO"));
+           // Output.Tables.Add(ZRFC_GET_PRO_HEADER8.GetTableValue("POD"));
 
         }        
 
