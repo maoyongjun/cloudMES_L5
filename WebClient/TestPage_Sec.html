@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>MES系统</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/Win8style.css?v=4.1.0" rel="stylesheet">
+    <link href="css/StationConfig.css" rel="stylesheet" />
+
+    <link href="css/plugins/bootstrapTable/bootstrap-table.min.css" rel="stylesheet" />
+
+</head>
+<body class="color-cPage">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">面板标题</h3>
+        </div>
+        <div class="panel-body">
+            这是一个基本的面板
+        </div>
+    </div><div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">面板标题</h3>
+        </div>
+        <div class="panel-body">
+            这是一个基本的面板
+        </div>
+    </div><div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">面板标题</h3>
+        </div>
+        <div class="panel-body">
+            这是一个基本的面板
+        </div>
+    </div><div class="panel panel-warning">
+        <div class="panel-heading">
+            <h3 class="panel-title">面板标题</h3>
+        </div>
+        <div class="panel-body">
+            这是一个基本的面板
+        </div>
+    </div><div class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 class="panel-title">面板标题</h3>
+        </div>
+        <div class="panel-body">
+            这是一个基本的面板
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            不带 title 的面板标题
+        </div>
+        <div class="panel-body">
+            面板内容
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                带有 title 的面板标题
+            </h3>
+        </div>
+        <div class="panel-body">
+            面板内容
+        </div>
+    </div>
+
+<!--<div id="container" style="min-width: 400px; height: 400px"></div>-->
+    
+    <div class="container">
+        <h1>Large Columns</h1>
+        <p>Bootstrap table support large columns, it will auto to show the horizontal scroll bar.</p>
+        <table id="table" data-height="400" data-show-columns="true"></table>
+    </div>
+
+<!-- 全局js -->
+<script src="Scripts/jquery.min.js"></script>
+<script src="Scripts/jquery.cookie.js"></script>
+<script src="Scripts/bootstrap.min.js?v=3.3.6"></script>
+<script src="Scripts/highcharts.js"></script>
+<script src="Scripts/dark-blue.js"></script>
+<script src="Scripts/exporting.js"></script>
+<script src="Scripts/export-csv.js"></script>
+<!-- 第三方插件 -->
+<script src="Scripts/plugins/JSON/json2.js"></script>
+<script src="Scripts/plugins/sweetalert/sweetalert.min.js"></script>
+
+    <script src="Scripts/plugins/bootstrapTable/bootstrap-table.min.js"></script>
+<script>
+    var $table = $('#table');
+    $(function () {
+        buildTable($table, 50, 50);
+    });
+    function buildTable($el, cells, rows) {
+        var i, j, row,
+                columns = [],
+                data = [];
+        for (i = 0; i < cells; i++) {
+            columns.push({
+                field: 'field' + i,
+                title: 'Cell' + i,
+                sortable: true
+            });
+        }
+        for (i = 0; i < rows; i++) {
+            row = {};
+            for (j = 0; j < cells; j++) {
+                row['field' + j] = 'Row-' + i + '-' + j;
+            }
+            data.push(row);
+        }
+        $el.bootstrapTable('destroy').bootstrapTable({
+            columns: columns,
+            data: data
+        });
+    }
+    //dataInfo-sample
+    var ChartBase = {
+        Title: "主標題",
+        SubTitle: "副標題",
+        XAxis: {
+            XAxisType: 'BarChart',
+            Title: "X軸標題",
+            Categories: ['苹果', '香蕉', '橙子'] // x 轴分类
+
+        },
+        YAxis: {
+            Title: '吃水果个数' // y 轴标题               
+        },
+        ChartDatas: [
+            { type: 'spline', name: '小明', data: [[1, 0], [0, 1], [4, 7]] },
+            { type: 'column', name: '小紅', data: [5, 7, 3] }
+        ]
+    }
+
+    //// 图表配置
+    //var options = {
+    //    chart: {
+    //        type: 'column'                          //指定图表的类型，默认是折线图（line）
+
+    //    },
+    //    title: {
+    //        text: '我的第一个图表'                 // 标题
+    //    },
+    //    xAxis: {
+    //        title:{text:"X軸標題"},
+    //        categories: ['苹果', '香蕉', '橙子']   // x 轴分类
+
+    //    },
+    //    yAxis: {
+    //        title: {
+    //            text: '吃水果个数'                // y 轴标题
+
+    //        }
+    //    },
+    //    series: [{                              // 数据列
+
+    //        name: '小明',                        // 数据列名
+    //        data: [1, 0, 4]                     // 数据
+    //    }, {
+    //        name: '小红',
+    //        data: [5, 7, 3]
+    //    }]
+    //};
+
+
+    // 图表初始化函数
+
+    //var chart = Highcharts.chart('container', options);
+
+    //var chart = Highcharts.chart('container',
+    //{
+    //    title: {
+    //        text: ChartBase.Title
+    //    },
+    //    subtitle: {
+    //        text: ChartBase.SubTitle
+    //    },
+    //    xAxis: {
+    //        title: ChartBase.XAxis.Title,
+    //        categories: ChartBase.XAxis.Categories // x 轴分类
+
+    //    },
+    //    yAxis: {
+    //        title: {
+    //            text: ChartBase.YAxis.Title
+    //        }
+    //    },
+    //    series: ChartBase.ChartDatas
+    //});
+</script>
+<!-- 自定义 -->
+<!--<script>
+        $(document).ready(function () {
+            initChart();
+        });
+
+        var initChart = function () {
+            $('#container').highcharts({
+                title: {
+                    text: '混合图表'
+                },
+                xAxis: {
+                    categories: ['苹果', ' 橙', '梨', '香蕉', '李子']
+                },
+                plotOptions: {
+                    series: {
+                        stacking: 'normal'
+                    }
+                },
+                labels: {
+                    items: [{
+                        html: '水果消耗',
+                        style: {
+                            left: '100px',
+                            top: '18px',
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                        }
+                    }]
+                },
+                series: [{
+                    type: 'column',
+                    name: '小张',
+                    data: [3, 2, 1, 3, 4]
+                }, {
+                    type: 'column',
+                    name: '小潘',
+                    data: [2, 3, 5, 7, 6]
+                }, {
+                    type: 'column',
+                    name: '小王',
+                    data: [4, 3, 3, 9, 0]
+                }, {
+                    type: 'spline',
+                    name: '平均值',
+                    data: [3, 2.67, 3, 6.33, 3.33],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }, {
+                    type: 'pie',
+                    name: '总的消耗',
+                    data: [{
+                        name: '小张',
+                        y: 13,
+                        color: Highcharts.getOptions().colors[0] // Jane's color
+                    }, {
+                        name: '小潘',
+                        y: 23,
+                        color: Highcharts.getOptions().colors[1] // John's color
+                    }, {
+                        name: '小王',
+                        y: 19,
+                        color: Highcharts.getOptions().colors[2] // Joe's color
+                    }],
+                    center: [100, 80],
+                    size: 100,
+                    showInLegend: false,
+                    dataLabels: {
+                        enabled: false
+                    }
+                }]
+            });
+        };
+
+    </script>-->
+</body>
+</html>

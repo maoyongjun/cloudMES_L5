@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MESStation.BaseClass.MESStationBase">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAABIBAEAAAAAQAkAAAAAAAAAACAAABABA=</HashCode>
+      <FileName>BaseClass\MESStationBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MESStation.BaseClass.MESInputDataLoader">
+    <Position X="0.5" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAggAAAQAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BaseClass\MESStationBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MESStation.BaseClass.MESStationSession">
+    <Position X="0.5" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAQAAAAAAAAAAAAAAAAEAAgAAAAABA=</HashCode>
+      <FileName>BaseClass\MESStationBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MESStation.BaseClass.MESStationInput">
+    <Position X="7.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAACAIAAAAAEAgAAAAAAAAAQEAAAAAgAAAAAAA=</HashCode>
+      <FileName>BaseClass\MESStationInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MESStation.BaseClass.DataChecker">
+    <Position X="4.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAQAAAAAAQAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>BaseClass\MESStationInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MESStation.BaseClass.StationAction">
+    <Position X="9" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAQEAAAAAQAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>BaseClass\MESStationInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MESStation.BaseClass.MESStationReturn">
+    <Position X="4.75" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEABAAAAAAAAAAAAAAAAAAABAEAAAAIAkAAAA=</HashCode>
+      <FileName>BaseClass\MESStationReturn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MESStation.BaseClass.StationReturnStatusValue">
+    <Position X="10.75" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BaseClass\MESStationReturn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MESStation.BaseClass.ActionParameter">
+    <Position X="7.25" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAgAAAQAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>BaseClass\ActionParameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微軟正黑體" Size="9" />
+</ClassDiagram>

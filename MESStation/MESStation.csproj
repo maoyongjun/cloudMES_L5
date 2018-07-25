@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD0DDE64-8CC7-4453-99B1-CA7558442AF7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MESStation</RootNamespace>
+    <AssemblyName>MESStation</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="sapnco, Version=3.0.0.42, Culture=neutral, PublicKeyToken=50436dca5c7f7d23, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\sapnco.dll</HintPath>
+    </Reference>
+    <Reference Include="sapnco_utils, Version=3.0.0.42, Culture=neutral, PublicKeyToken=50436dca5c7f7d23, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\sapnco_utils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiHelper.cs" />
+    <Compile Include="BaseClass\ActionParameter.cs" />
+    <Compile Include="BaseClass\APIInfo.cs" />
+    <Compile Include="BaseClass\APIInputInfo.cs" />
+    <Compile Include="BaseClass\MESPermission.cs" />
+    <Compile Include="BaseClass\MESStationBase.cs" />
+    <Compile Include="BaseClass\MESStationInput.cs" />
+    <Compile Include="BaseClass\MESStationModel.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="BaseClass\MesAPIBase.cs" />
+    <Compile Include="Config\BUConfig.cs" />
+    <Compile Include="Config\CActionCodeConfig.cs" />
+    <Compile Include="Config\CAqltypeConfig.cs" />
+    <Compile Include="Config\CErrorCodeConfig.cs" />
+    <Compile Include="Config\ConvertWorkorder.cs" />
+    <Compile Include="Config\CProcessConfig.cs" />
+    <Compile Include="Config\CReasonCodeConfig.cs" />
+    <Compile Include="Config\CSectionConfig.cs" />
+    <Compile Include="Config\CSeqnoConfig.cs" />
+    <Compile Include="Config\CSkuDetailConfig.cs" />
+    <Compile Include="Config\CSkuSampleConfig.cs" />
+    <Compile Include="Config\CStationConfig.cs" />
+    <Compile Include="Config\DepartmentConfig.cs" />
+    <Compile Include="Config\FactoryConfig.cs" />
+    <Compile Include="Config\LineConfig.cs" />
+    <Compile Include="Config\LinkConfig.cs" />
+    <Compile Include="Config\RepairItemSelect.cs" />
+    <Compile Include="Config\RouteConfig.cs" />
+    <Compile Include="Config\RSnLockConfig.cs" />
+    <Compile Include="Config\SAPStationMapConfig.cs" />
+    <Compile Include="Config\SkuConfig.cs" />
+    <Compile Include="Config\SkuKeyPartConfig.cs" />
+    <Compile Include="Config\SkuRouteMappingConfig.cs" />
+    <Compile Include="Config\SkuSeries.cs" />
+    <Compile Include="Config\StorageCodeConfig.cs" />
+    <Compile Include="Config\StorageItemConfig.cs" />
+    <Compile Include="Config\UnlockTypeSelect.cs" />
+    <Compile Include="FileUpdate\Fileuplaod.cs" />
+    <Compile Include="GlobalConfig\MESMessageConfig.cs" />
+    <Compile Include="Interface\MrbBackFlush.cs" />
+    <Compile Include="Interface\SAPRFC\SAP_RFC_BASE.cs" />
+    <Compile Include="Interface\SAPRFC\ZCPP_NSBG_0091.cs" />
+    <Compile Include="Interface\SAPRFC\ZRFC_SFC_NSG_0001B.cs" />
+    <Compile Include="Interface\SAPRFC\ZRFC_SFC_NSG_0020.cs" />
+    <Compile Include="KeyPart\KPListBase.cs" />
+    <Compile Include="KeyPart\KPScan.cs" />
+    <Compile Include="KeyPart\SNKPBase.cs" />
+    <Compile Include="KeyPart\SN_KP.cs" />
+    <Compile Include="Label\LabelBase.cs" />
+    <Compile Include="Label\LabelConfig.cs" />
+    <Compile Include="Label\SnPalletList.cs" />
+    <Compile Include="Label\TestLabel.cs" />
+    <Compile Include="Label\TestLabel2.cs" />
+    <Compile Include="LogicObject\LotNo.cs" />
+    <Compile Include="MESUserManager\RegisterNewUser.cs" />
+    <Compile Include="Packing\PackConfigAPI.cs" />
+    <Compile Include="Packing\PackingBase.cs" />
+    <Compile Include="Report\CallReport.cs" />
+    <Compile Include="Service References\HateEmsGetDataService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SNMaker\SNmaker.cs" />
+    <Compile Include="SNMaker\SNRulerConfig.cs" />
+    <Compile Include="Stations\StationActions\ActionRunners\APDataAction.cs" />
+    <Compile Include="Stations\StationActions\ActionRunners\InputStateAction.cs" />
+    <Compile Include="Stations\StationActions\ActionRunners\LabelPrintAction.cs" />
+    <Compile Include="Stations\StationActions\ActionRunners\LinkActions.cs" />
+    <Compile Include="Stations\StationActions\ActionRunners\NextInputAction.cs" />
+    <Compile Include="Stations\StationActions\ActionRunners\PackAction.cs" />
+    <Compile Include="Stations\StationActions\ActionRunners\PanelActions.cs" />
+    <Compile Include="Stations\StationActions\ActionRunners\RepairActions.cs" />
+    <Compile Include="Stations\StationActions\ActionRunners\SNActions.cs" />
+    <Compile Include="Stations\StationActions\ActionRunners\TestAction.cs" />
+    <Compile Include="Stations\StationActions\DataCheckers\CheckAPData.cs" />
+    <Compile Include="Stations\StationActions\DataCheckers\CheckEmp.cs" />
+    <Compile Include="Stations\StationActions\DataCheckers\CheckInputData.cs" />
+    <Compile Include="Stations\StationActions\DataCheckers\CheckKeypart.cs" />
+    <Compile Include="Stations\StationActions\DataCheckers\CheckKP.cs" />
+    <Compile Include="Stations\StationActions\DataCheckers\CheckLocker.cs" />
+    <Compile Include="Stations\StationActions\DataCheckers\CheckPack.cs" />
+    <Compile Include="Stations\StationActions\DataCheckers\CheckSN.cs" />
+    <Compile Include="Stations\StationActions\DataCheckers\CheckPanelData.cs" />
+    <Compile Include="Stations\StationActions\DataCheckers\CheckRepairFail.cs" />
+    <Compile Include="Stations\StationActions\DataCheckers\SkuCheckers.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\APInfoDataloader.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\CustomLoader.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\DataInputLoader.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\PackingDataLoader.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\PackLoader.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\PanelDataLoaders.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\RepairFailLoader.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\RouteDataLoader.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\SectionDataLoader.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\SkunoLoader.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\WoFromAnyDataLoader.cs" />
+    <Compile Include="Stations\StationActions\HateEmsCaller.cs" />
+    <Compile Include="Test\InputValueTest.cs" />
+    <Compile Include="WOManager\WOBaseConfig.cs" />
+    <Compile Include="Interface\Interface.cs" />
+    <Compile Include="LogicObject\Route.cs" />
+    <Compile Include="LogicObject\SKU.cs" />
+    <Compile Include="Stations\StationActions\ActionRunners\TRSNActions.cs" />
+    <Compile Include="Stations\StationActions\ActionRunners\WorkorderActions.cs" />
+    <Compile Include="Stations\StationActions\DataCheckers\CheckWorkorder.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\NewSNDataloader.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\SNLoader.cs" />
+    <Compile Include="Stations\StationConfig\ActionParaConfig.cs" />
+    <Compile Include="Stations\StationConfig\CStationActionConfig.cs" />
+    <Compile Include="Stations\StationConfig\InputActionConfig.cs" />
+    <Compile Include="Stations\StationConfig\InputConfig.cs" />
+    <Compile Include="Stations\StationConfig\RStationActionConfig.cs" />
+    <Compile Include="Stations\StationConfig\StationActionParaConfig.cs" />
+    <Compile Include="Stations\StationConfig\StationConfig.cs" />
+    <Compile Include="Stations\StationConfig\StationInputConfig.cs" />
+    <Compile Include="Stations\StationConfig\StationOutputConfig.cs" />
+    <Compile Include="WOManager\SNRangeConfig.cs" />
+    <Compile Include="GlobalConfig\GetCommonConfig.cs" />
+    <Compile Include="GlobalConfig\InputRuleConfig.cs" />
+    <Compile Include="GlobalConfig\LanguageConfig.cs" />
+    <Compile Include="GlobalConfig\LanguagePageConfig.cs" />
+    <Compile Include="GlobalConfig\SystemMenuConfig.cs" />
+    <Compile Include="Interface\DownLoad_WO.cs" />
+    <Compile Include="LogicObject\Carton.cs" />
+    <Compile Include="LogicObject\DN.cs" />
+    <Compile Include="LogicObject\Panel.cs" />
+    <Compile Include="LogicObject\PO.cs" />
+    <Compile Include="LogicObject\Privilege.cs" />
+    <Compile Include="LogicObject\Role.cs" />
+    <Compile Include="LogicObject\SN.cs" />
+    <Compile Include="LogicObject\Tray.cs" />
+    <Compile Include="LogicObject\User.cs" />
+    <Compile Include="LogicObject\WorkOrder.cs" />
+    <Compile Include="Config\CustomerConfig.cs" />
+    <Compile Include="Config\WorkClassConfig.cs" />
+    <Compile Include="MESReturnView\Public\GetApiClassListReturncs.cs" />
+    <Compile Include="MESReturnView\Public\GetApiFunctionsListReturn.cs" />
+    <Compile Include="MESReturnView\Public\LoginReturn.cs" />
+    <Compile Include="BaseClass\MESStationReturn.cs" />
+    <Compile Include="MESReturnView\Public\PrivilegeReturn.cs" />
+    <Compile Include="MESReturnView\Station\CallStationReturn.cs" />
+    <Compile Include="MESUserManager\UserLogin.cs" />
+    <Compile Include="MESUserManager\UserManager.cs" />
+    <Compile Include="MESUserManager\UserPrivilege.cs" />
+    <Compile Include="MESUserManager\UserRole.cs" />
+    <Compile Include="Stations\CallStation.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\CounterLoader.cs" />
+    <Compile Include="Stations\StationActions\DataLoaders\WorkorderLoader.cs" />
+    <Compile Include="Test\APITest.cs" />
+    <Compile Include="Test\CreateClass.cs" />
+    <Compile Include="Test\RouteTest.cs" />
+    <Compile Include="Test\SectionSetUpConfig.cs" />
+    <Compile Include="Test\SkuRouteMappingTest.cs" />
+    <Compile Include="Test\SkuTest.cs" />
+    <Compile Include="Test\StationSetUpConfig.cs" />
+    <Compile Include="UserManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataBase.xml" />
+    <Content Include="DLL\HWDNNSFCBase.dll" />
+    <Content Include="DLL\Newtonsoft.Json.dll" />
+    <Content Include="DLL\Newtonsoft.Json.pdb" />
+    <Content Include="DLL\Newtonsoft.Json.xml" />
+    <Content Include="DLL\rscp4n.dll" />
+    <Content Include="DLL\sapnco.dll" />
+    <Content Include="DLL\sapnco_utils.dll" />
+    <None Include="Service References\HateEmsGetDataService\MESStation.HateEmsGetDataService.emsGetDataServiceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HateEmsGetDataService\MESStation.HateEmsGetDataService.hateEmsGetDataServiceOut.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HateEmsGetDataService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\HateEmsGetDataService\configuration.svcinfo" />
+    <None Include="Service References\HateEmsGetDataService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MESDataObject\MESDataObject.csproj">
+      <Project>{af4761e2-01c9-4d1b-a3bc-4bd7d37bb365}</Project>
+      <Name>MESDataObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MESDBHelper\MESDBHelper.csproj">
+      <Project>{c8bdb8fc-44f6-4109-a779-34ee99903270}</Project>
+      <Name>MESDBHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MESReport\MESReport.csproj">
+      <Project>{33e293d4-9efe-4fac-aa57-865c74845c4f}</Project>
+      <Name>MESReport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Management\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="BaseClass\工站.cd" />
+    <None Include="Service References\HateEmsGetDataService\HateEmsGetDataServiceImplService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\HateEmsGetDataService\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CEA7060-0186-4C17-9CB0-B1EFD306CFBA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MESInterface</RootNamespace>
+    <AssemblyName>MESInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HWDNNSFCBase">
+      <HintPath>..\MESStation\DLL\HWDNNSFCBase.dll</HintPath>
+    </Reference>
+    <Reference Include="rscp4n">
+      <HintPath>..\MESStation\DLL\rscp4n.dll</HintPath>
+    </Reference>
+    <Reference Include="sapnco, Version=3.0.0.42, Culture=neutral, PublicKeyToken=50436dca5c7f7d23, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MESStation\DLL\sapnco.dll</HintPath>
+    </Reference>
+    <Reference Include="sapnco_utils, Version=3.0.0.42, Culture=neutral, PublicKeyToken=50436dca5c7f7d23, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MESStation\DLL\sapnco_utils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HWD\AssyReturnBackFlush.cs" />
+    <Compile Include="HWD\AssyReturnBackFlush_UI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HWD\AssyReturnBackFlush_UI.Designer.cs">
+      <DependentUpon>AssyReturnBackFlush_UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HWD\BackFlush\BackFlushHelp.cs" />
+    <Compile Include="HWD\BackFlush\frmBackFlush.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HWD\BackFlush\frmBackFlush.designer.cs">
+      <DependentUpon>frmBackFlush.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HWD\BackFlush\R_BACKFLUSH_CHECK.cs" />
+    <Compile Include="HWD\BackFlush\R_BACKFLUSH_HISTORY.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HWD\CopySkuTypeToOld.cs" />
+    <Compile Include="HWD\CopySkuTypeToOld_UI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HWD\CopySkuTypeToOld_UI.Designer.cs">
+      <DependentUpon>CopySkuTypeToOld_UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HWD\DownLoadWO.cs" />
+    <Compile Include="HWD\DownLoadWO_UI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HWD\DownLoadWO_UI.designer.cs">
+      <DependentUpon>DownLoadWO_UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HWD\MrbBackFlush.cs" />
+    <Compile Include="HWD\MrbBackFlush_UI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HWD\MrbBackFlush_UI.Designer.cs">
+      <DependentUpon>MrbBackFlush_UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HWD\StockInBackFlush.cs" />
+    <Compile Include="HWD\StockInBackFlush_UI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HWD\StockInBackFlush_UI.Designer.cs">
+      <DependentUpon>StockInBackFlush_UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfacePublicValues.cs" />
+    <Compile Include="jobBase.cs" />
+    <Compile Include="MessageClient.cs" />
+    <Compile Include="MessageService.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RouteBase.cs" />
+    <Compile Include="SAPMappingBase.cs" />
+    <Compile Include="SAP_RFC\SAP_RFC_BASE.cs" />
+    <Compile Include="SAP_RFC\ZCMM_NSBG_0051.cs" />
+    <Compile Include="SAP_RFC\ZCPP_NSBG_0091.cs" />
+    <Compile Include="SAP_RFC\ZRFC_GET_PRO_HEADER8.cs" />
+    <Compile Include="SAP_RFC\ZRFC_SFC_NSG_0001B.cs" />
+    <Compile Include="SAP_RFC\ZRFC_SFC_NSG_0009.cs" />
+    <Compile Include="SAP_RFC\ZRFC_SFC_NSG_0020.cs" />
+    <Compile Include="SAP_RFC\ZRFC_SFC_NSG_0022.cs" />
+    <Compile Include="SAP_RFC\ZRFC_SFC_NSG_0023T.cs" />
+    <Compile Include="taskBase.cs" />
+    <Compile Include="TJ_L5\DownloadWO.cs" />
+    <Compile Include="TJ_L5\DownloadWO_UI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TJ_L5\DownloadWO_UI.Designer.cs">
+      <DependentUpon>DownloadWO_UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tools.cs" />
+    <Compile Include="VERTIV\DownloadWO.cs" />
+    <Compile Include="VERTIV\DownloadWO_UI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VERTIV\DownloadWO_UI.Designer.cs">
+      <DependentUpon>DownloadWO_UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WOBase.cs" />
+    <Compile Include="WriteLog.cs" />
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HWD\AssyReturnBackFlush_UI.resx">
+      <DependentUpon>AssyReturnBackFlush_UI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HWD\BackFlush\frmBackFlush.resx">
+      <DependentUpon>frmBackFlush.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HWD\CopySkuTypeToOld_UI.resx">
+      <DependentUpon>CopySkuTypeToOld_UI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HWD\DownLoadWO_UI.resx">
+      <DependentUpon>DownLoadWO_UI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HWD\MrbBackFlush_UI.resx">
+      <DependentUpon>MrbBackFlush_UI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HWD\StockInBackFlush_UI.resx">
+      <DependentUpon>StockInBackFlush_UI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="TJ_L5\DownloadWO_UI.resx">
+      <DependentUpon>DownloadWO_UI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VERTIV\DownloadWO_UI.resx">
+      <DependentUpon>DownloadWO_UI.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="config_tjl5_bak.ini" />
+    <None Include="config_tjl5.ini" />
+    <None Include="config.ini" />
+    <None Include="config_vertiv.ini" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MESDataObject\MESDataObject.csproj">
+      <Project>{af4761e2-01c9-4d1b-a3bc-4bd7d37bb365}</Project>
+      <Name>MESDataObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MESDBHelper\MESDBHelper.csproj">
+      <Project>{c8bdb8fc-44f6-4109-a779-34ee99903270}</Project>
+      <Name>MESDBHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

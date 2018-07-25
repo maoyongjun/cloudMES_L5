@@ -1,0 +1,469 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>MES系统</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+</head>
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+    <div class="ibox-content full-height login_page" id="loadingScreen" style="display:none;">
+        <div class="spiner-example">
+            <div class="sk-spinner sk-spinner-wave">
+                <div class="sk-rect1"></div>
+                <div class="sk-rect2"></div>
+                <div class="sk-rect3"></div>
+                <div class="sk-rect4"></div>
+                <div class="sk-rect5"></div>
+            </div>
+        </div>
+    </div>
+    <!--重新登錄窗口開始-->
+    <div id="lockscreen" class="full-height" style="display:none">
+        <div class="lock-word animated fadeInDown">
+        </div>
+        <div class="middle-box text-center lockscreen animated fadeInDown">
+            <div>
+                <div class="m-b-md">
+                    <img alt="image" class="img-circle circle-border" src="img/a1.jpg">
+                </div>
+                <h3>张三</h3>
+                <p>您需要再次输入密码</p>
+                <form class="m-t" role="form" action="index.html">
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="******" required="">
+                    </div>
+                    <button type="submit" class="btn btn-primary block full-width">登录到MES</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--重新登錄窗口結束-->
+    <!--登錄窗口開始-->
+    <div class="container-fluid login_page full-height" id="LoginLayer" style="display:none">
+        <canvas id="demo-canvas"></canvas>
+        <div class="middle-box text-center loginscreen animated fadeInDown large-header" id="LoginBox">
+            <div>
+                <h1 class="logo-name"><font>M</font>ES</h1>
+            </div>
+            <h3>欢迎使用 MES</h3>
+            <form class="m-t" role="form" action="#">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="用户名" required="" id="txtUserName">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="密码" required="" id="txtPassWord">
+                </div>
+                <button class="btn btn-primary block full-width m-b" onclick="LoginFunction()">登 录</button>
+                <p class="text-muted text-center">
+                    <a href="#"><small>忘记密码了？</small></a> | <a href="register.html">注册一个新账号</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    <!--登錄窗口結束-->
+    <!--主程序窗口開始-->
+    <div id="wrapper" style="display:none">
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="nav-close">
+                <i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span><img alt="image" class="img-circle" src="#圖片" /></span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                    <span class="block m-t-xs"><strong class="font-bold">张三</strong></span>
+                                    <span class="text-muted text-xs block">系統管理員<b class="caret"></b></span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li>
+                                    <a class="J_menuItem" href="Page_User/UserView.html">个人资料</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="Page_Public/contactsView.html">联系我们</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#" onclick="LogoutFunction()">安全退出</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                            MES
+                        </div>
+                    </li>
+                    <li>
+                        <a class="J_menuItem" href="CreateModel.html" data-index="0">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">Create Model</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="J_menuItem" href="MesApiList.html" data-index="0">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">DEBUG</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">基本資料</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">系統設定<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="form_webuploader.html">BU Name Setup</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_file_upload.html">Employee Setup</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_file_upload.html">Line Name Setup</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_file_upload.html">Section Name Setup</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_file_upload.html">Group Name Setup</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_file_upload.html">Station Name Setup</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_file_upload.html">WorkDate SectionSetup</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_file_upload.html">Customer Name Setup</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">權限管理<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="form_editors.html">Group Privilege Setup</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor.html">Program Privilege Setup</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">幾種設定<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="form_editors1.html">Product Name Setup</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor1.html">Routing Setup</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor1.html">Key Part Setup</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor1.html">Packing Parameter Setup</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor1.html">Product Label Setup</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor1.html">OBA Sample Inspection</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor1.html">SFC&SAP Group Mapping</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">工單管控</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="FunctionPage/404.html" data-index="0">PCB Label Print</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="index_v2.html">工單區間管控</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="index_v2.html">Download W/O</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="index_v2.html">W/O Start & Release</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">工序管理</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">SMT<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="form_webuploader.html">SMTLOADING</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_file_upload.html">SMT1/AOI2</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_file_upload.html">SMT2/AOI4</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">PTH<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="form_editors.html">Transfer Station</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor.html">PTH Input/VI</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor.html">PCB Open</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor.html">QUACK</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor.html">壓合</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor.html">前組</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor.html">2DX</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor.html">5DX</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">SI<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="form_editors1.html">ICT</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor1.html">Function Test</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">倉庫<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="form_editors2.html">Stockin</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor2.html">Inspection</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor2.html">Shipping</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">輔助功能</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">維修管理<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="form_webuploader.html">維修清號</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_file_upload.html">Failure Symptom Code</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_file_upload.html">Repair Action Code</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_file_upload.html">Error Code Setup</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">重工管理<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="form_editors.html">MRB IN</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor.html">MRB Transfer</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor.html">Rework</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">品質管控<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="form_editors1.html">Lock Product</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="form_simditor1.html">Lock/Unload line</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">其他功能<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="form_editors2.html">DB Health Monitor</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">報表管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="FunctionPage/404.html" data-index="0">直通率報表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="index_v2.html">總良率報表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="index_v2.html">UPH報表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="index_v2.html">WIP報表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="index_v2.html">維修報表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="index_v2.html">不良原因分析報表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="index_v2.html">MRB報表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="index_v2.html">SN Status Tracking</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="index_v2.html">重測率報表</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--左侧导航结束-->
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                        <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
+                            <div class="form-group">
+                                <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li class="dropdown hidden-xs">
+                            <a class="right-sidebar-toggle" aria-expanded="false">
+                                <i class="fa fa-tasks"></i> 主题
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row content-tabs">
+                <button class="roll-nav roll-left J_tabLeft">
+                    <i class="fa fa-backward"></i>
+                </button>
+                <nav class="page-tabs J_menuTabs">
+                    <div class="page-tabs-content">
+                        <a href="javascript:;" class="active J_menuTab" data-id="">首页</a>
+                    </div>
+                </nav>
+                <button class="roll-nav roll-right J_tabRight">
+                    <i class="fa fa-forward"></i>
+                </button>
+                <div class="btn-group roll-nav roll-right">
+                    <button class="dropdown J_tabClose" data-toggle="dropdown">
+                        关闭操作<span class="caret"></span>
+                    </button>
+                    <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                        <li class="J_tabShowActive">
+                            <a>定位当前选项卡</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="J_tabCloseAll">
+                            <a>关闭全部选项卡</a>
+                        </li>
+                        <li class="J_tabCloseOther">
+                            <a>关闭其他选项卡</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#" onclick="LogoutFunction()" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            </div>
+            <div class="row J_mainContent" id="content-main">
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="" frameborder="0" data-id="" seamless></iframe>
+            </div>
+            <div class="footer">
+                <div class="pull-right">
+                    &copy; 2017-2019 <a href="#" target="_blank">Foxconn FG</a>
+                </div>
+            </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+    <!--主程序窗口結束-->
+    <!-- 全局js -->
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/jquery.cookie.js"></script>
+    <script src="Scripts/bootstrap.min.js?v=3.3.6"></script>
+    <!-- 第三方插件 -->
+    <script src="Scripts/plugins/JSON/json2.js"></script>
+    <script src="Scripts/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="Scripts/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="Scripts/plugins/sweetalert/sweetalert.min.js"></script>
+    <!-- 自定义js -->
+    <script src="Scripts/contabs.js"></script>
+    <script src="Scripts/MesClient.js"></script>
+    <script src="Scripts/Mes.js?v=1.0"></script>
+    <script src="Scripts/TweenLite.min.js"></script>
+    <script src="Scripts/EasePack.min.js"></script>
+    <script src="Scripts/rAF.js"></script>
+    <script src="Scripts/canvas.js"></script>
+    <script>
+    </script>
+</body>
+</html>

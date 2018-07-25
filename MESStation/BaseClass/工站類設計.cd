@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MESStation.BaseClass.MESStationBase">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAABIBAEAAAAAQAkAAAAAAAAAACAAABABA=</HashCode>
+      <FileName>BaseClass\MESStationBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MESStation.BaseClass.MESInputDataLoader">
+    <Position X="3.25" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAggAAAQAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BaseClass\MESStationBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MESStation.BaseClass.MESStationSession">
+    <Position X="0.75" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAQAAAAAAAAAAAAAAAAEAAgAAAAABA=</HashCode>
+      <FileName>BaseClass\MESStationBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MESStation.BaseClass.MESStationInput">
+    <Position X="3.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAACAIAAAAAEAgAAAAAAAAAQEAAAAAgAAAAAAA=</HashCode>
+      <FileName>BaseClass\MESStationInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MESStation.BaseClass.DataChecker">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAQAAAAAAQAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>BaseClass\MESStationInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MESStation.BaseClass.StationAction">
+    <Position X="3.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAQEAAAAAQAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>BaseClass\MESStationInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微軟正黑體" Size="9" />
+</ClassDiagram>
