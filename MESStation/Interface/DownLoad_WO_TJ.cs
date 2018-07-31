@@ -75,70 +75,72 @@ namespace MESStation.Interface
             Dictionary<string, string> DicPara = new Dictionary<string, string>();
      
             sfcdb = this.DBPools["SFCDB"].Borrow();
-            
+
+           
             ZRFC_GET_PRO_HEADER8 ZRFC_GET_PRO_HEADER8 = new ZRFC_GET_PRO_HEADER8();
             ZRFC_GET_PRO_HEADER8.SetValues(StrWo, Plant);//NHGZ,WDN1//WDN1,WSL3
             ZRFC_GET_PRO_HEADER8.CallRFC();
 
             DataTable woheader =  ZRFC_GET_PRO_HEADER8.GetTableValue("PO");
 
-            Console.Out.WriteLine(woheader);
-           
-
              R_WO_HEADER = new T_R_WO_HEADER_TJ(sfcdb, DB_TYPE_ENUM.Oracle);
 
             Row_R_WO_HEADER_TJ rowRWOHeader = (Row_R_WO_HEADER_TJ)R_WO_HEADER.NewRow();
-            rowRWOHeader.ID = R_WO_HEADER.GetNewID(BU, sfcdb);
-            rowRWOHeader.AUFNR = woheader.Rows[0]["AUFNR"].ToString();
-            rowRWOHeader.WERKS = woheader.Rows[0]["WERKS"].ToString();
-            rowRWOHeader.AUART = woheader.Rows[0]["AUART"].ToString();
-            rowRWOHeader.MATNR = woheader.Rows[0]["MATNR"].ToString();
-            rowRWOHeader.REVLV = woheader.Rows[0]["REVLV"].ToString();
-            rowRWOHeader.KDAUF = woheader.Rows[0]["KDAUF"].ToString();
-            rowRWOHeader.GSTRS = woheader.Rows[0]["GSTRS"].ToString();
-            rowRWOHeader.DISPO = woheader.Rows[0]["DISPO"].ToString();
-            rowRWOHeader.GAMNG = woheader.Rows[0]["GAMNG"].ToString();
-            rowRWOHeader.VERID = woheader.Rows[0]["VERID"].ToString();
-            rowRWOHeader.ARBPL = woheader.Rows[0]["ARBPL"].ToString();
-            rowRWOHeader.KUNNR = woheader.Rows[0]["KUNNR"].ToString();
-            rowRWOHeader.KDMAT = woheader.Rows[0]["KDMAT"].ToString();
-            rowRWOHeader.AEDAT = woheader.Rows[0]["AEDAT"].ToString();
-            rowRWOHeader.AENAM = woheader.Rows[0]["AENAM"].ToString();
-            rowRWOHeader.MATKL = woheader.Rows[0]["MATKL"].ToString();
-            rowRWOHeader.MAKTX = woheader.Rows[0]["MAKTX"].ToString();
-            rowRWOHeader.GMEIN = woheader.Rows[0]["GMEIN"].ToString();
-            rowRWOHeader.STATUS = woheader.Rows[0]["STATUS"].ToString();
-            rowRWOHeader.ERDAT = woheader.Rows[0]["ERDAT"].ToString();
-            rowRWOHeader.ERFZEIT = woheader.Rows[0]["ERFZEIT"].ToString();
-            rowRWOHeader.AEZEIT = woheader.Rows[0]["AEZEIT"].ToString();
-            rowRWOHeader.GSUZS = woheader.Rows[0]["GSUZS"].ToString();
-            rowRWOHeader.RSNUM = woheader.Rows[0]["RSNUM"].ToString();
-            rowRWOHeader.KBEASOLL = woheader.Rows[0]["KBEASOLL"].ToString();
-            rowRWOHeader.TASKGROUP = woheader.Rows[0]["TASKGROUP"].ToString();
-            rowRWOHeader.CY_SEQNR = woheader.Rows[0]["CY_SEQNR"].ToString();
-            rowRWOHeader.ZAPLFL = woheader.Rows[0]["ZAPLFL"].ToString();
-            rowRWOHeader.ZVORNR = woheader.Rows[0]["ZVORNR"].ToString();
-            rowRWOHeader.ZTDLINE = woheader.Rows[0]["ZTDLINE"].ToString();
-            rowRWOHeader.KDPOS = woheader.Rows[0]["KDPOS"].ToString();
-            rowRWOHeader.BSTKD = woheader.Rows[0]["BSTKD"].ToString();
-            rowRWOHeader.POSEX_E = woheader.Rows[0]["POSEX_E"].ToString();
-            rowRWOHeader.TKNUM = woheader.Rows[0]["TKNUM"].ToString();
-            rowRWOHeader.APRIO = woheader.Rows[0]["APRIO"].ToString();
-            rowRWOHeader.MAUFNR = woheader.Rows[0]["MAUFNR"].ToString();
-            rowRWOHeader.OBJNR = woheader.Rows[0]["OBJNR"].ToString();
-            rowRWOHeader.FEVOR = woheader.Rows[0]["FEVOR"].ToString();
-            rowRWOHeader.WEMNG = woheader.Rows[0]["WEMNG"].ToString();
-            rowRWOHeader.ERNAM = woheader.Rows[0]["ERNAM"].ToString();
-            rowRWOHeader.IDAT2 = woheader.Rows[0]["IDAT2"].ToString();
-            rowRWOHeader.PHAS2 = woheader.Rows[0]["PHAS2"].ToString();
-            rowRWOHeader.STLAL = woheader.Rows[0]["STLAL"].ToString();
-            rowRWOHeader.STLAN = woheader.Rows[0]["STLAN"].ToString();
-            rowRWOHeader.VDATU = woheader.Rows[0]["VDATU"].ToString();
-            rowRWOHeader.VGW03 = woheader.Rows[0]["VGW03"].ToString();
-
-            string sql = rowRWOHeader.GetInsertString(DB_TYPE_ENUM.Oracle);
-            sfcdb.ExecSQL(sql);
-
+            if (woheader.Rows.Count > 0) {
+            
+                rowRWOHeader.ID = R_WO_HEADER.GetNewID(BU, sfcdb);
+                rowRWOHeader.AUFNR = woheader.Rows[0]["AUFNR"].ToString();
+                rowRWOHeader.WERKS = woheader.Rows[0]["WERKS"].ToString();
+                rowRWOHeader.AUART = woheader.Rows[0]["AUART"].ToString();
+                rowRWOHeader.MATNR = woheader.Rows[0]["MATNR"].ToString();
+                rowRWOHeader.REVLV = woheader.Rows[0]["REVLV"].ToString();
+                rowRWOHeader.KDAUF = woheader.Rows[0]["KDAUF"].ToString();
+                rowRWOHeader.GSTRS = woheader.Rows[0]["GSTRS"].ToString();
+                rowRWOHeader.DISPO = woheader.Rows[0]["DISPO"].ToString();
+                rowRWOHeader.GAMNG = woheader.Rows[0]["GAMNG"].ToString();
+                rowRWOHeader.VERID = woheader.Rows[0]["VERID"].ToString();
+                rowRWOHeader.ARBPL = woheader.Rows[0]["ARBPL"].ToString();
+                rowRWOHeader.KUNNR = woheader.Rows[0]["KUNNR"].ToString();
+                rowRWOHeader.KDMAT = woheader.Rows[0]["KDMAT"].ToString();
+                rowRWOHeader.AEDAT = woheader.Rows[0]["AEDAT"].ToString();
+                rowRWOHeader.AENAM = woheader.Rows[0]["AENAM"].ToString();
+                rowRWOHeader.MATKL = woheader.Rows[0]["MATKL"].ToString();
+                rowRWOHeader.MAKTX = woheader.Rows[0]["MAKTX"].ToString();
+                rowRWOHeader.GMEIN = woheader.Rows[0]["GMEIN"].ToString();
+                rowRWOHeader.STATUS = woheader.Rows[0]["STATUS"].ToString();
+                rowRWOHeader.ERDAT = woheader.Rows[0]["ERDAT"].ToString();
+                rowRWOHeader.ERFZEIT = woheader.Rows[0]["ERFZEIT"].ToString();
+                rowRWOHeader.AEZEIT = woheader.Rows[0]["AEZEIT"].ToString();
+                rowRWOHeader.GSUZS = woheader.Rows[0]["GSUZS"].ToString();
+                rowRWOHeader.RSNUM = woheader.Rows[0]["RSNUM"].ToString();
+                rowRWOHeader.KBEASOLL = woheader.Rows[0]["KBEASOLL"].ToString();
+                rowRWOHeader.TASKGROUP = woheader.Rows[0]["TASKGROUP"].ToString();
+                rowRWOHeader.CY_SEQNR = woheader.Rows[0]["CY_SEQNR"].ToString();
+                rowRWOHeader.ZAPLFL = woheader.Rows[0]["ZAPLFL"].ToString();
+                rowRWOHeader.ZVORNR = woheader.Rows[0]["ZVORNR"].ToString();
+                rowRWOHeader.ZTDLINE = woheader.Rows[0]["ZTDLINE"].ToString();
+                rowRWOHeader.KDPOS = woheader.Rows[0]["KDPOS"].ToString();
+                rowRWOHeader.BSTKD = woheader.Rows[0]["BSTKD"].ToString();
+                rowRWOHeader.POSEX_E = woheader.Rows[0]["POSEX_E"].ToString();
+                rowRWOHeader.TKNUM = woheader.Rows[0]["TKNUM"].ToString();
+                rowRWOHeader.APRIO = woheader.Rows[0]["APRIO"].ToString();
+                rowRWOHeader.MAUFNR = woheader.Rows[0]["MAUFNR"].ToString();
+                rowRWOHeader.OBJNR = woheader.Rows[0]["OBJNR"].ToString();
+                rowRWOHeader.FEVOR = woheader.Rows[0]["FEVOR"].ToString();
+                rowRWOHeader.WEMNG = woheader.Rows[0]["WEMNG"].ToString();
+                rowRWOHeader.ERNAM = woheader.Rows[0]["ERNAM"].ToString();
+                rowRWOHeader.IDAT2 = woheader.Rows[0]["IDAT2"].ToString();
+                rowRWOHeader.PHAS2 = woheader.Rows[0]["PHAS2"].ToString();
+                rowRWOHeader.STLAL = woheader.Rows[0]["STLAL"].ToString();
+                rowRWOHeader.STLAN = woheader.Rows[0]["STLAN"].ToString();
+                rowRWOHeader.VDATU = woheader.Rows[0]["VDATU"].ToString();
+                rowRWOHeader.VGW03 = woheader.Rows[0]["VGW03"].ToString();
+                String WO = rowRWOHeader.AUFNR;
+                string sql = $@"DELETE FROM R_WO_HEADER_TJ WHERE AUFNR = '{WO}'";
+                sfcdb.ExecSQL(sql);
+                sql = rowRWOHeader.GetInsertString(DB_TYPE_ENUM.Oracle);
+                sfcdb.ExecSQL(sql);
+            }
 
 
 
@@ -165,6 +167,11 @@ namespace MESStation.Interface
             T_R_WO_ITEM_TJ T_R_WO_ITEM_TJ = new T_R_WO_ITEM_TJ(sfcdb, DB_TYPE_ENUM.Oracle);
 
             Row_R_WO_ITEM_TJ rowRWODetail = (Row_R_WO_ITEM_TJ)T_R_WO_ITEM_TJ.NewRow();
+            string sql = $@"DELETE FROM R_WO_ITEM_TJ WHERE AUFNR = '{StrWo}'";
+            if (woDetail.Rows.Count > 0) {
+                sfcdb.ExecSQL(sql);
+            }
+
             foreach (DataRow R_woDetail in woDetail.Rows) {
                 rowRWODetail.ID = T_R_WO_ITEM_TJ.GetNewID(BU, sfcdb);
                 rowRWODetail.AUFNR = R_woDetail["AUFNR"].ToString();
@@ -193,8 +200,9 @@ namespace MESStation.Interface
                 rowRWODetail.LIFNR = R_woDetail["LIFNR"].ToString();
                 rowRWODetail.POTX1 = R_woDetail["POTX1"].ToString();
                 rowRWODetail.POTX2 = R_woDetail["POTX2"].ToString();
-
-                string sql = rowRWODetail.GetInsertString(DB_TYPE_ENUM.Oracle);
+               
+              
+                sql = rowRWODetail.GetInsertString(DB_TYPE_ENUM.Oracle);
                 sfcdb.ExecSQL(sql);
 
             }
