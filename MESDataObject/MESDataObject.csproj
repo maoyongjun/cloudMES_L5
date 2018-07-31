@@ -61,6 +61,7 @@
     <Compile Include="DataObjectTable.cs" />
     <Compile Include="MESReturnMessage.cs" />
     <Compile Include="Module\AP_DLL.cs" />
+    <Compile Include="Module\R_WO_HEADER_TJ.cs" />
     <Compile Include="Module\C_ACTION_CODE.cs" />
     <Compile Include="Module\C_AQLTYPE.cs" />
     <Compile Include="Module\C_CODE_MAPPING.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Module\R_WO_BASE.cs" />
     <Compile Include="Module\R_WO_HEADER.cs" />
     <Compile Include="Module\R_WO_ITEM.cs" />
+    <Compile Include="Module\R_WO_ITEM_TJ.cs" />
     <Compile Include="Module\R_WO_KP_Repalce.cs" />
     <Compile Include="Module\R_WO_REGION.cs" />
     <Compile Include="Module\R_WO_TEXT.cs" />

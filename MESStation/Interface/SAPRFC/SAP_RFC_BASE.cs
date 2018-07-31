@@ -55,55 +55,19 @@ namespace MESStation.Interface.SAPRFC
         {
             RfcPara.Clear();
             RfcPara = new RfcConfigParameters();
-            //string BU = AppPublicValues.LogBU;
-            string BU = "";
-            if (true)
-            {
-                RfcConfigParameters configParams = new RfcConfigParameters(); // Name property is neccessary, otherwise, NonInvalidParameterException will be thrown configParams.Add(RfcConfigParameters.Name, "ECC"); 
-                //RfcPara.Add(RfcConfigParameters.SystemNumber, "05"); // instance number configParams.Add(RfcConfigParameters.SystemID, "D01");
-                //RfcPara.Add(RfcConfigParameters.User, "HWV-BG");
-                //RfcPara.Add(RfcConfigParameters.Password, "MESEDICU");
-                //RfcPara.Add(RfcConfigParameters.Client, "811");
-                //RfcPara.Add(RfcConfigParameters.Language, "ZF");
-                //RfcPara.Add(RfcConfigParameters.MessageServerHost, "10.134.108.111");
-                ////configParams.Add(RfcConfigParameters.GatewayHost,"10.134.108.122");
-                //RfcPara.Add(RfcConfigParameters.LogonGroup, "CNSBG_800");
-                //RfcPara.Add(RfcConfigParameters.SystemID, "CNP");
-                //RfcPara.Add(RfcConfigParameters.Name, "CON1");
 
-                // modify by fgg 2018.04.16 begin
-                RfcPara.Add(RfcConfigParameters.SystemNumber, "01");
-                RfcPara.Add(RfcConfigParameters.User, "HWV-BG");
-                RfcPara.Add(RfcConfigParameters.Password, "MESEDICU");
-                RfcPara.Add(RfcConfigParameters.Client, "811");
-                RfcPara.Add(RfcConfigParameters.Name, "CON" + (ConnCount++).ToString());
-                RfcPara.Add(RfcConfigParameters.Language, "ZF");
-                RfcPara.Add(RfcConfigParameters.PoolSize, "5");
-                RfcPara.Add(RfcConfigParameters.MaxPoolSize, "10");
-                RfcPara.Add(RfcConfigParameters.GatewayHost,"10.134.108.122");
-                RfcPara.Add(RfcConfigParameters.LogonGroup, "CNSBG");
-                // modify by fgg 2018.04.16 end
-            }
-            else
-            {
-                RfcPara.Add(RfcConfigParameters.AppServerHost,
-                     "10.134.108.152");
-                RfcPara.Add(RfcConfigParameters.SystemNumber, "00");
-                RfcPara.Add(RfcConfigParameters.User, "NSGBG");
-                //"NSGBG");
-                RfcPara.Add(RfcConfigParameters.Password,
-                    "MESEDICU");
-                RfcPara.Add(RfcConfigParameters.Client,
-                    "800");
-                RfcPara.Add(RfcConfigParameters.Language,
-                    "EN");
-                RfcPara.Add(RfcConfigParameters.Name, "CON" + (ConnCount++).ToString());
-                RfcPara.Add(RfcConfigParameters.PoolSize, "5");
-                RfcPara.Add(RfcConfigParameters.MaxPoolSize, "10");
-            }
-            //RfcConfigParameters.LogonGroup
-
-            RfcPara.Add(RfcConfigParameters.Codepage, "8300");
+            RfcConfigParameters configParams = new RfcConfigParameters();
+       
+            RfcPara.Add(RfcConfigParameters.SystemNumber, "02");
+            RfcPara.Add(RfcConfigParameters.User, "SFC_USER");
+            RfcPara.Add(RfcConfigParameters.Password, "yhpwd");
+            RfcPara.Add(RfcConfigParameters.Client, "801");
+            RfcPara.Add(RfcConfigParameters.Name, "LH1");
+            RfcPara.Add(RfcConfigParameters.Language, "en");
+            RfcPara.Add(RfcConfigParameters.PoolSize, "5");
+            RfcPara.Add(RfcConfigParameters.MaxPoolSize, "10");
+            RfcPara.Add(RfcConfigParameters.GatewayHost, "10.134.28.85");
+            RfcPara.Add(RfcConfigParameters.LogonGroup, "PUBLIC");
 
             RfcDest = RfcDestinationManager.GetDestination(RfcPara);
         }

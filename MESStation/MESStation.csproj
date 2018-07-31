@@ -111,6 +111,7 @@
     <Compile Include="Interface\MrbBackFlush.cs" />
     <Compile Include="Interface\SAPRFC\SAP_RFC_BASE.cs" />
     <Compile Include="Interface\SAPRFC\ZCPP_NSBG_0091.cs" />
+    <Compile Include="Interface\SAPRFC\ZRFC_GET_PRO_DETAIL.cs" />
     <Compile Include="Interface\SAPRFC\ZRFC_SFC_NSG_0001B.cs" />
     <Compile Include="Interface\SAPRFC\ZRFC_SFC_NSG_0020.cs" />
     <Compile Include="Interface\SAPRFC\ZRFC_GET_PRO_HEADER8.cs" />

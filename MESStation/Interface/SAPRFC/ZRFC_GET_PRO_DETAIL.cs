@@ -1,17 +1,16 @@
-﻿using MESStation.Interface.SAPRFC;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MESInterface.SAP_RFC 
+namespace MESStation.Interface.SAPRFC
 {
-    class ZRFC_GET_PRO_HEADER8 : SAP_RFC_BASE
+    class ZRFC_GET_PRO_DETAIL : SAP_RFC_BASE
     {
-        public ZRFC_GET_PRO_HEADER8() : base()
+        public ZRFC_GET_PRO_DETAIL() : base()
         {
-            SetRFC_NAME("ZRFC_GET_PRO_HEADER8");
+            SetRFC_NAME("ZRFC_GET_PRO_DETAIL");
         }
         public void SetValues(string WO, string FACTORY)
         {
@@ -19,7 +18,7 @@ namespace MESInterface.SAP_RFC
 
             SetValue("PO_NO", WO);
             SetValue("PLANT", FACTORY);
-    
+
 
         }
     }
