@@ -115,6 +115,7 @@
     <Compile Include="Interface\SAPRFC\ZRFC_SFC_NSG_0001B.cs" />
     <Compile Include="Interface\SAPRFC\ZRFC_SFC_NSG_0020.cs" />
     <Compile Include="Interface\SAPRFC\ZRFC_GET_PRO_HEADER8.cs" />
+    <Compile Include="Interface\StartWO.cs" />
     <Compile Include="KeyPart\KPListBase.cs" />
     <Compile Include="KeyPart\KPScan.cs" />
     <Compile Include="KeyPart\SNKPBase.cs" />
