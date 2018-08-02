@@ -22,8 +22,14 @@ namespace MESStation.SNMaker
             throw new NotImplementedException();
         }
 
-        
         public static string GetNextSN(string RuleName, OleExec DB)
+        {
+            return GetNextSN(RuleName,DB,"");
+
+        }
+
+
+        public static string GetNextSN(string RuleName, OleExec DB,string WO)
         {
             Row_C_SN_RULE root = null;
             List<Row_C_SN_RULE_DETAIL> detail = null;
@@ -100,6 +106,20 @@ namespace MESStation.SNMaker
                     }
                     SN += detail[i].CURVALUE;
                 }
+                else if (detail[i].INPUTTYPE == "WK")
+                {
+                    string wk = detail[i].CODETYPE;
+                    string sql = $@"SELECT TO_CHAR(SYSDATE,'{wk}') FROM DUAL";
+                    string currentWK = (string)DB.ExecSelectOneValue(sql);
+                    SN += currentWK;
+                }
+                else if (detail[i].INPUTTYPE == "SQL")
+                {
+                    string sql = detail[i].CURVALUE;
+                    sql = sql.Replace("{WO}", WO);
+                    string value = (string)DB.ExecSelectOneValue(sql);
+                    SN += value;
+                }
                 else if (detail[i].INPUTTYPE == "SN")
                 {
                     if (ResetFlag)
@@ -136,7 +156,7 @@ namespace MESStation.SNMaker
                     sn = CodeMapping[curValue].CODEVALUE + sn;
                     if (sn.Length < detail[i].CURVALUE.Length)
                     {
-                        for (int k = 0;  detail[i].CURVALUE.Length != sn.Length; k++)
+                        for (int k = 0; detail[i].CURVALUE.Length != sn.Length; k++)
                         {
                             sn = "0" + sn;
                         }

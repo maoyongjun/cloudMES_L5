@@ -32,7 +32,7 @@ namespace MESStation.Interface
             OleExec Sfcdb = this.DBPools["SFCDB"].Borrow();
             string WO = Data["WO"].ToString();
 
-            String nextSN = SNmaker.GetNextSN("TEST", Sfcdb);
+            String nextSN = SNmaker.GetNextSN("TEST", Sfcdb,WO);
 
             StationReturn.Data = nextSN;
             StationReturn.Status = StationReturnStatusValue.Pass;
