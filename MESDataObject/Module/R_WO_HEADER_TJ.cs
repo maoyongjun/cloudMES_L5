@@ -20,6 +20,27 @@ namespace MESDataObject.Module
             TableName = "R_WO_HEADER_TJ".ToUpper();
             DataInfo = GetDataObjectInfo(TableName, DB, DBType);
         }
+        public Row_R_WO_HEADER_TJ GetWo(string _WO, OleExec DB)
+        {
+            string strsql = "";
+            if (DBType == DB_TYPE_ENUM.Oracle)
+            {
+                strsql = $@"select ID from R_WO_HEADER_TJ where AUFNR='{_WO}'";
+                string ID = DB.ExecSelectOneValue(strsql)?.ToString();
+                if (ID == null)
+                {
+                    string errMsg = MESReturnMessage.GetMESReturnMessage("MES00000007", new string[] { "WorkOrder:" + _WO });
+                    throw new MESReturnMessage(errMsg);
+                }
+                Row_R_WO_HEADER_TJ R = (Row_R_WO_HEADER_TJ)this.GetObjByID(ID, DB);
+                return R;
+            }
+            else
+            {
+                string errMsg = MESReturnMessage.GetMESReturnMessage("MES00000019", new string[] { DBType.ToString() });
+                throw new MESReturnMessage(errMsg);
+            }
+        }
     }
     public class Row_R_WO_HEADER_TJ : DataObjectBase
     {
