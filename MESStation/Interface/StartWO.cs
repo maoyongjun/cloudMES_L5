@@ -35,10 +35,12 @@ namespace MESStation.Interface
             T_R_WO_HEADER_TJ t_R_WO_HEADER_TJ = new T_R_WO_HEADER_TJ(Sfcdb,this.DBTYPE);
             Row_R_WO_HEADER_TJ row_R_WO_HEADER = t_R_WO_HEADER_TJ.GetWo(WO,Sfcdb);
             float qty = float.Parse(row_R_WO_HEADER.GAMNG);
-          
+            qty = 5;
             for (int i = 0; i < qty; i++) {
                 String nextSN = SNmaker.GetNextSN("TEST", Sfcdb, WO);
                 Console.Out.WriteLine(nextSN);
+                T_R_SN t_r_sn = new T_R_SN(Sfcdb,this.DBTYPE);
+                t_r_sn.addStartSNRecords(WO, nextSN, Sfcdb);
             }
             
 

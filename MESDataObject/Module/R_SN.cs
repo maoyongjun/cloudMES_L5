@@ -1114,6 +1114,24 @@ namespace MESDataObject.Module
             }
             return TRCode;
         }
+
+
+
+        public string addStartSNRecords(string workorderno, string trsn, OleExec DB) {
+            T_R_SN SnDetailTable = new T_R_SN(DB, this.DBType);
+            Row_R_SN r_sn = (Row_R_SN)SnDetailTable.NewRow();
+            string result = string.Empty;
+            r_sn.ID = SnDetailTable.GetNewID("TJ", DB);
+            r_sn.SN = trsn;
+            r_sn.EDIT_TIME = DateTime.Now;
+            r_sn.WORKORDERNO = workorderno;
+            string sql = r_sn.GetInsertString(this.DBType);
+            result = DB.ExecSQL(sql);
+
+            return result;
+        }
+
+
         //Add by LLF 2018-01-26 End
 
         /// <summary>
